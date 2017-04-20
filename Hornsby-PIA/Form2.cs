@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Hornsby_PIA.AccessSQLService;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Web;
+using Hornsby_PIA.IService;
+
 
 namespace Hornsby_PIA
 {
@@ -22,7 +26,8 @@ namespace Hornsby_PIA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)

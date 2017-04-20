@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace AccessSQLService.Model
+namespace Hornsby.Model
 {
     [DataContract]
     public class Article

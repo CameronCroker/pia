@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hornsby-PIA", "Hornsby-PIA\Hornsby-PIA.csproj", "{81C01612-0507-4394-9D12-E241D768952E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessSQLService", "AccessSQLService\AccessSQLService.csproj", "{6EC86FE4-4A43-4B0E-8AC5-0EFC49301292}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessSQLService", "..\..\..\Documents\Visual Studio 2015\Projects\C#\C#\AccessSQLService\AccessSQLService.csproj", "{6EC86FE4-4A43-4B0E-8AC5-0EFC49301292}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
