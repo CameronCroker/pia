@@ -5,8 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xaml;
+using System.Windows;
+using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite.Internal;
+using System.Threading.Tasks;
+using System.Threading;
+using Hornsby_PIA;
 
 namespace Hornsby_PIA
 {
@@ -15,7 +23,7 @@ namespace Hornsby_PIA
         public Form2()
         {
             InitializeComponent();
-            textBox1.ForeColor = SystemColors.GrayText;
+            textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
             textBox1.Text = "Please Enter Plant's Scientific Name";
         }
 
@@ -27,29 +35,121 @@ namespace Hornsby_PIA
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = String.Empty;
-           
+
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            textBox1.ForeColor = SystemColors.WindowText;
+            textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0)
             {
-               
-                textBox1.ForeColor = SystemColors.GrayText;
+
+                textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
             }
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
+        private  void textBox1_Enter(object sender, EventArgs e)
         {
+
+
             if (textBox1.Text == "Please Enter Plant's Scientific Name")
             {
                 textBox1.Text = "";
-                textBox1.ForeColor = SystemColors.WindowText;
+                textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             }
+            
+        }
+
+        private async void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+
+                string searchold = textBox1.Text;
+                string searchstring;
+                Add_Text();
+                string lol = "lols";
+
+                while (searchold != textBox1.Text)
+                {
+                    searchstring = Grab_Entries(textBox1.Text).ToString();
+
+                    PointF draw1 = panel1.Location;
+                    using (SolidBrush br = new SolidBrush(Color.Red))
+                    {
+                        StringFormat sf = new StringFormat();
+                        sf.FormatFlags = StringFormatFlags.DirectionRightToLeft;
+                        e.Graphics.DrawString(lol + searchstring, this.Font, br, draw1, sf);
+                    }
+                    panel1.Refresh();
+            }
+
+        }                                                                                                 
+
+        public void Add_Text()
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=sqliteSample.db"))
+            {
+                db.Open();
+
+                SqliteCommand insertCommand = new SqliteCommand();
+                insertCommand.Connection = db;
+                string entry = "someentry";
+
+                //Use parameterized query to prevent SQL injection attacks
+                insertCommand.CommandText = "INSERT INTO MyTable VALUES (NULL, @Entry);";
+                insertCommand.Parameters.AddWithValue("@Entry", entry);
+                try
+                {
+                    insertCommand.ExecuteReader();
+                }
+                catch (SqliteException error)
+                {
+                    
+                }
+                db.Close();               
+            }
+
+
+        }
+
+
+    public List<String> Grab_Entries(string search)
+        {
+            List<String> entries = new List<string>();
+            using (SqliteConnection db = new SqliteConnection("Filename=sqliteSample.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand("SELECT Text_Entry from MyTable where name like "+ search, db);
+                SqliteDataReader query;
+                try
+                {
+                    query = selectCommand.ExecuteReader();
+                }
+                catch (SqliteException error)
+                {
+                    //Handle error
+                    return entries;
+                }
+                while (query.Read())
+                {
+                    entries.Add(query.GetString(0));
+                }
+                db.Close();
+            }
+
+            return entries;
+
         }
     }
+
+
+
+
 }
+
+
+  
+       

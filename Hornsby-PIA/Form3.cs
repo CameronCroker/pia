@@ -6,6 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xaml;
+using System.Windows;
+using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite.Internal;
+
 
 namespace Hornsby_PIA
 {
