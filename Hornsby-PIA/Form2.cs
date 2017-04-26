@@ -15,6 +15,7 @@ using Microsoft.Data.Sqlite.Internal;
 using System.Threading.Tasks;
 using System.Threading;
 using Hornsby_PIA;
+using System.Data.SqlClient;
 
 namespace Hornsby_PIA
 {
