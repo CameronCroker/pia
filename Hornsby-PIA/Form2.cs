@@ -21,11 +21,19 @@ namespace Hornsby_PIA
 {
     public partial class Form2 : Form
     {
+
+        
+     
+
         public Form2()
         {
             InitializeComponent();
             textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            textBox1.Text = "Please Enter Plant's Scientific Name";
+            textBox1.Text = "Please Enter Plant's Scientific Name";           
+            new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
+            panel1.Refresh();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,37 +63,45 @@ namespace Hornsby_PIA
         private  void textBox1_Enter(object sender, EventArgs e)
         {
 
-
             if (textBox1.Text == "Please Enter Plant's Scientific Name")
-            {
+                       {
                 textBox1.Text = "";
                 textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            }
-            
+                            }
+
+           
+
         }
 
-        private async void panel1_Paint(object sender, PaintEventArgs e)
+        private  void panel1_Paint(object sender, PaintEventArgs e)
         {
 
 
-                string searchold = textBox1.Text;
-                string searchstring;
-                Add_Text();
-                string lol = "lols";
+            //  string searchold = textBox1.Text;
+            //  string output;
+            //  button1.Click += new EventHandler(this.button1_Click);
+            //    while (this.IsAccessible)
+            //   {
+            //   output = string.Join(Environment.NewLine, Program.sqlConnect.search(textBox1.Text).ToArray());               
 
-                while (searchold != textBox1.Text)
-                {
-                    searchstring = Grab_Entries(textBox1.Text).ToString();
 
-                    PointF draw1 = panel1.Location;
-                    using (SolidBrush br = new SolidBrush(Color.Red))
-                    {
-                        StringFormat sf = new StringFormat();
-                        sf.FormatFlags = StringFormatFlags.DirectionRightToLeft;
-                        e.Graphics.DrawString(lol + searchstring, this.Font, br, draw1, sf);
-                    }
-                    panel1.Refresh();
-            }
+            System.Drawing.Graphics formGraphics = this.CreateGraphics();
+            string drawString = "Sample Text";
+            System.Drawing.Font drawFont = new System.Drawing.Font(
+                "Arial", 16);
+            System.Drawing.SolidBrush drawBrush = new
+                System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            float x = 150.0f;
+            float y = 50.0f;
+            formGraphics.DrawString(drawString, drawFont, drawBrush, x, y);
+            drawFont.Dispose();
+            drawBrush.Dispose();
+            formGraphics.Dispose();
+
+
+
+
+            //}
 
         }                                                                                                 
 
@@ -144,6 +160,8 @@ namespace Hornsby_PIA
             return entries;
 
         }
+
+
     }
 
 
