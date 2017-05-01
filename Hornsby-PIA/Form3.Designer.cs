@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.SciName = new System.Windows.Forms.TextBox();
+            this.ComName = new System.Windows.Forms.TextBox();
+            this.FamName = new System.Windows.Forms.TextBox();
+            this.Flowers = new System.Windows.Forms.TextBox();
+            this.Type = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.Results = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,40 +54,40 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // SciName
             // 
-            this.textBox1.Location = new System.Drawing.Point(30, 210);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
-            this.textBox1.TabIndex = 2;
+            this.SciName.Location = new System.Drawing.Point(30, 210);
+            this.SciName.Name = "SciName";
+            this.SciName.Size = new System.Drawing.Size(186, 20);
+            this.SciName.TabIndex = 2;
             // 
-            // textBox2
+            // ComName
             // 
-            this.textBox2.Location = new System.Drawing.Point(246, 210);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 20);
-            this.textBox2.TabIndex = 3;
+            this.ComName.Location = new System.Drawing.Point(246, 210);
+            this.ComName.Name = "ComName";
+            this.ComName.Size = new System.Drawing.Size(186, 20);
+            this.ComName.TabIndex = 3;
             // 
-            // textBox3
+            // FamName
             // 
-            this.textBox3.Location = new System.Drawing.Point(30, 254);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(186, 20);
-            this.textBox3.TabIndex = 4;
+            this.FamName.Location = new System.Drawing.Point(30, 254);
+            this.FamName.Name = "FamName";
+            this.FamName.Size = new System.Drawing.Size(186, 20);
+            this.FamName.TabIndex = 4;
             // 
-            // textBox4
+            // Flowers
             // 
-            this.textBox4.Location = new System.Drawing.Point(246, 254);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(186, 20);
-            this.textBox4.TabIndex = 5;
+            this.Flowers.Location = new System.Drawing.Point(246, 254);
+            this.Flowers.Name = "Flowers";
+            this.Flowers.Size = new System.Drawing.Size(186, 20);
+            this.Flowers.TabIndex = 5;
             // 
-            // textBox5
+            // Type
             // 
-            this.textBox5.Location = new System.Drawing.Point(30, 301);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(186, 20);
-            this.textBox5.TabIndex = 6;
+            this.Type.Location = new System.Drawing.Point(30, 301);
+            this.Type.Name = "Type";
+            this.Type.Size = new System.Drawing.Size(186, 20);
+            this.Type.TabIndex = 6;
             // 
             // label1
             // 
@@ -135,50 +135,52 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "General Types";
             // 
-            // panel1
+            // BackButton
             // 
-            this.panel1.Location = new System.Drawing.Point(30, 346);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 124);
-            this.panel1.TabIndex = 12;
+            this.BackButton.Location = new System.Drawing.Point(357, 484);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 13;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // SearchButton
             // 
-            this.button1.Location = new System.Drawing.Point(357, 484);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SearchButton.Location = new System.Drawing.Point(30, 484);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 14;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Results
             // 
-            this.button2.Location = new System.Drawing.Point(30, 484);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Results.Location = new System.Drawing.Point(30, 327);
+            this.Results.Multiline = true;
+            this.Results.Name = "Results";
+            this.Results.ReadOnly = true;
+            this.Results.Size = new System.Drawing.Size(402, 151);
+            this.Results.TabIndex = 15;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 519);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Results);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Type);
+            this.Controls.Add(this.Flowers);
+            this.Controls.Add(this.FamName);
+            this.Controls.Add(this.ComName);
+            this.Controls.Add(this.SciName);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form3";
             this.Text = "Form3";
@@ -191,18 +193,18 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox SciName;
+        private System.Windows.Forms.TextBox ComName;
+        private System.Windows.Forms.TextBox FamName;
+        private System.Windows.Forms.TextBox Flowers;
+        private System.Windows.Forms.TextBox Type;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.TextBox Results;
     }
 }

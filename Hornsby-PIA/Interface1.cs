@@ -14,7 +14,7 @@ namespace Hornsby_PIA
 
 
 
-        public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=True") ;
         
 
 
@@ -28,42 +28,8 @@ namespace Hornsby_PIA
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-            }
-
-          
+            }                   
            
-        }
-
-        public bool upload()
-        {        
-            
-            SqlCommand Command = new SqlCommand(File.ReadAllText("C:\\Users\\cameron\\Download\\comp348_pia.sql"), myConnection);            
-
-
-
-            Command.ExecuteNonQuery();
-
-            return true;
-        }
-
-        public bool read()
-        {
-            try
-            {
-                SqlDataReader myReader = null;
-                SqlCommand myCommand = new SqlCommand("select * from table",  myConnection);
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
-                {
-                    Console.WriteLine(myReader["Column1"].ToString());
-                    Console.WriteLine(myReader["Column2"].ToString());
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            return true;
         }
 
         public void endconnect()
@@ -78,22 +44,48 @@ namespace Hornsby_PIA
             }
         }
 
-        public List<string> search(string SearchTerm)
+        public async Task<List<string>> simsearch(string SearchTerm)
         {
             var results = new List<string>();
-            SearchTerm = "%" + SearchTerm + "%";
-            SqlDataReader myReader = null;
-            SqlCommand myCommand = new SqlCommand("select CommonName from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + "  or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm, myConnection);
-            myReader = myCommand.ExecuteReader();
-            int i = 0;
+            SearchTerm = "'%" + SearchTerm + "%'";
+            SqlDataReader myReader;
+            SqlCommand myCommand = new SqlCommand();
+            myCommand.CommandText = "select CommonName from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like "+ SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm;
+            myCommand.CommandType = System.Data.CommandType.Text;
+            myCommand.Connection = myConnection;
+            myReader = await myCommand.ExecuteReaderAsync();
             while (myReader.Read())
-            {
-                results[i] = myReader["CommonName"].ToString();
-                Console.WriteLine(results[i].ToString());
-            }
-
+            {                
+                results.Add(myReader["CommonName"].ToString());                              
+            }            
+            myReader.Close();
             return results;
         }
+
+        public async Task<List<string>> adsearch(string SearchTerm, string tipe)
+        {
+            var results = new List<string>();
+            SearchTerm = "'%" + SearchTerm + "%'";
+            SqlDataReader myReader;
+            SqlCommand myCommand = new SqlCommand();
+            myCommand.CommandText = "select CommonName from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm;
+            myCommand.CommandType = System.Data.CommandType.Text;
+            myCommand.Connection = myConnection;
+            myReader = await myCommand.ExecuteReaderAsync();
+            while (myReader.Read())
+            {
+                results.Add(myReader["CommonName"].ToString());
+            }
+            myReader.Close();
+            return results;
+        }
+
+
+
+
+
+
+
     }
 }
 
