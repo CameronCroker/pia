@@ -50,8 +50,7 @@ namespace Hornsby_PIA
             SearchTerm = "'%" + SearchTerm + "%'";
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
-            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like "+ SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm;
-            Console.WriteLine(myCommand.CommandText);
+            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like "+ SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
             myCommand.CommandType = System.Data.CommandType.Text;
             myCommand.Connection = myConnection;
             myReader = await myCommand.ExecuteReaderAsync();
@@ -92,7 +91,7 @@ namespace Hornsby_PIA
                 else if (count > 0 && i == 0 && tipe[i] == 1)
                 {
                     container = SearchTerm.ElementAt(0);
-                    commandText += " or ScientificName like '%" + container + "%'";
+                    commandText += " and ScientificName like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
                 if (count == 0 && i == 1 && tipe[i] == 1)
@@ -105,7 +104,7 @@ namespace Hornsby_PIA
                 else if (count > 0 && i == 1 && tipe[i] == 1)
                 {
                     container = SearchTerm.ElementAt(0);
-                    commandText += " or CommonName like '%" + container + "%'";
+                    commandText += " and CommonName like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
                 if (count == 0 && i == 2 && tipe[i] == 1)
@@ -118,7 +117,7 @@ namespace Hornsby_PIA
                 else if (count > 0 && i == 2 && tipe[i] == 1)
                 {
                     container = SearchTerm.ElementAt(0);
-                    commandText += " or family.Name like '%" + container + "%'";
+                    commandText += " and family.Name like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
                 if (count == 0 && i == 3 && tipe[i] == 1)
@@ -131,7 +130,7 @@ namespace Hornsby_PIA
                 else if (count > 0 && i == 3 && tipe[i] == 1)
                 {
                     container = SearchTerm.ElementAt(0);
-                    commandText += " or FlowerColour like '%" + container + "%'";
+                    commandText += " and FlowerColour like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
 
@@ -145,7 +144,7 @@ namespace Hornsby_PIA
                 else if (count > 0 && i == 4 && tipe[i] == 1)
                 {
                     container = SearchTerm.ElementAt(0);
-                    commandText += " or GeneralType like '%" + container + "%'";
+                    commandText += " and GeneralType like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
             }

@@ -22,11 +22,12 @@ namespace Hornsby_PIA
     public partial class Form2 : Form
     {
         public string disp = "CommonName";
+        public string selected;
 
         public Form2()
         {
             InitializeComponent();
-                       
+                                   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,6 +93,21 @@ namespace Hornsby_PIA
             }
             textBox1_TextChanged(sender,e);
         }
+
+        private void textBox2_SelectionChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void GenRep_Click(object sender, EventArgs e)
+        {
+            int cursorPosition = textBox2.SelectionStart;
+            int lineIndex = textBox2.GetLineFromCharIndex(cursorPosition);
+            string lineText = textBox2.Lines[lineIndex];
+            Console.WriteLine(lineText);
+        }
+           
     }
 
 

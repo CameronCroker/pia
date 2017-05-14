@@ -34,9 +34,10 @@ namespace Hornsby_PIA
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.DispOpt = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.RichTextBox();
+            this.GenRep = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,17 +81,6 @@ namespace Hornsby_PIA
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(27, 290);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(366, 220);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.WordWrap = false;
-            // 
             // DispOpt
             // 
             this.DispOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -115,14 +105,35 @@ namespace Hornsby_PIA
             this.label1.TabIndex = 6;
             this.label1.Text = "Display Options";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(34, 290);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(366, 220);
+            this.textBox2.TabIndex = 7;
+            this.textBox2.Text = "";
+            this.textBox2.SelectionChanged += new System.EventHandler(this.textBox2_SelectionChanged);
+            // 
+            // GenRep
+            // 
+            this.GenRep.Location = new System.Drawing.Point(266, 232);
+            this.GenRep.Name = "GenRep";
+            this.GenRep.Size = new System.Drawing.Size(118, 23);
+            this.GenRep.TabIndex = 8;
+            this.GenRep.Text = "Generate Report";
+            this.GenRep.UseVisualStyleBackColor = true;
+            this.GenRep.Click += new System.EventHandler(this.GenRep_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 522);
+            this.Controls.Add(this.GenRep);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DispOpt);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
@@ -141,8 +152,9 @@ namespace Hornsby_PIA
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
         private ComboBox DispOpt;
         private Label label1;
+        private RichTextBox textBox2;
+        private Button GenRep;
     }
 }

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{81C01612-0507-4394-9D12-E241D768952E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Hornsby_PIA</RootNamespace>
     <AssemblyName>Hornsby_PIA</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
