@@ -42,6 +42,8 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.Results = new System.Windows.Forms.TextBox();
+            this.DispOpt = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,7 +145,7 @@
             this.BackButton.TabIndex = 13;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.button1_Click);
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // SearchButton
             // 
@@ -153,6 +155,7 @@
             this.SearchButton.TabIndex = 14;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // Results
             // 
@@ -160,14 +163,41 @@
             this.Results.Multiline = true;
             this.Results.Name = "Results";
             this.Results.ReadOnly = true;
+            this.Results.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Results.Size = new System.Drawing.Size(402, 151);
             this.Results.TabIndex = 15;
+            // 
+            // DispOpt
+            // 
+            this.DispOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DispOpt.FormattingEnabled = true;
+            this.DispOpt.Items.AddRange(new object[] {
+            "Common Name",
+            "Scientific Name",
+            "Species",
+            "Genus"});
+            this.DispOpt.Location = new System.Drawing.Point(246, 300);
+            this.DispOpt.Name = "DispOpt";
+            this.DispOpt.Size = new System.Drawing.Size(121, 21);
+            this.DispOpt.TabIndex = 16;
+            this.DispOpt.SelectedIndexChanged += new System.EventHandler(this.DispOpt_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(243, 284);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Display Options";
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 519);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.DispOpt);
             this.Controls.Add(this.Results);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.BackButton);
@@ -206,5 +236,7 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.TextBox Results;
+        private System.Windows.Forms.ComboBox DispOpt;
+        private System.Windows.Forms.Label label6;
     }
 }

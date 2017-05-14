@@ -35,18 +35,21 @@ namespace Hornsby_PIA
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.DispOpt = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(124, 214);
-            this.textBox1.Name = "textBox1";            
+            this.textBox1.Location = new System.Drawing.Point(124, 186);
+            this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(184, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Please Enter Plant\'s Scientific Name";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             // 
             // button1
             // 
@@ -83,16 +86,42 @@ namespace Hornsby_PIA
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox2.Size = new System.Drawing.Size(366, 220);
             this.textBox2.TabIndex = 4;
             this.textBox2.WordWrap = false;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            // 
+            // DispOpt
+            // 
+            this.DispOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DispOpt.FormattingEnabled = true;
+            this.DispOpt.Items.AddRange(new object[] {
+            "Common Name",
+            "Scientific Name",
+            "Species",
+            "Genus"});
+            this.DispOpt.Location = new System.Drawing.Point(124, 234);
+            this.DispOpt.Name = "DispOpt";
+            this.DispOpt.Size = new System.Drawing.Size(121, 21);
+            this.DispOpt.TabIndex = 5;
+            this.DispOpt.SelectedIndexChanged += new System.EventHandler(this.DispOpt_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(124, 215);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Display Options";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 522);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DispOpt);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -113,5 +142,7 @@ namespace Hornsby_PIA
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
+        private ComboBox DispOpt;
+        private Label label1;
     }
 }

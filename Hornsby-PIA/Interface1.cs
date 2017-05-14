@@ -44,47 +44,137 @@ namespace Hornsby_PIA
             }
         }
 
-        public async Task<List<string>> simsearch(string SearchTerm)
+        public async Task<List<string>> simsearch(string SearchTerm , string Disp)
         {
-            var results = new List<string>();
+            var results = new List<string>();            
             SearchTerm = "'%" + SearchTerm + "%'";
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
-            myCommand.CommandText = "select CommonName from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like "+ SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm;
+            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like "+ SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm;
+            Console.WriteLine(myCommand.CommandText);
             myCommand.CommandType = System.Data.CommandType.Text;
             myCommand.Connection = myConnection;
             myReader = await myCommand.ExecuteReaderAsync();
             while (myReader.Read())
             {                
-                results.Add(myReader["CommonName"].ToString());                              
+                       
+                if (Disp == "CommonName")
+                {
+                    if(myReader[Disp].ToString() == "")
+                    {
+                        results.Add(myReader["ScientificName"].ToString() + " \"No Common Name Found\"");
+                    }
+                    else
+                        results.Add(myReader[Disp].ToString());
+                }
+                else
+                    results.Add(myReader[Disp].ToString());
             }            
             myReader.Close();
             return results;
         }
 
-        public async Task<List<string>> adsearch(string SearchTerm, string tipe)
+        public List<string> adsearch(List<string> SearchTerm, int[] tipe, string Disp)
         {
             var results = new List<string>();
-            SearchTerm = "'%" + SearchTerm + "%'";
+            string commandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID join GeneralType on plants.GeneralTypeID = generaltype.GeneralTypeID where";
+            string container;
+            int count = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                if (count == 0 && i == 0 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " ScientificName like '%" + container + "%'";
+                    count++;
+                    SearchTerm.RemoveAt(0);
+                }
+                else if (count > 0 && i == 0 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " or ScientificName like '%" + container + "%'";
+                    SearchTerm.RemoveAt(0);
+                }
+                if (count == 0 && i == 1 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " CommonName like '%" + container + "%'";
+                    count++;
+                    SearchTerm.RemoveAt(0);
+                }
+                else if (count > 0 && i == 1 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " or CommonName like '%" + container + "%'";
+                    SearchTerm.RemoveAt(0);
+                }
+                if (count == 0 && i == 2 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " family.Name like '%" + container + "%'";
+                    count++;
+                    SearchTerm.RemoveAt(0);
+                }
+                else if (count > 0 && i == 2 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " or family.Name like '%" + container + "%'";
+                    SearchTerm.RemoveAt(0);
+                }
+                if (count == 0 && i == 3 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " FlowerColour like '%" + container + "%'";
+                    count++;
+                    SearchTerm.RemoveAt(0);
+                }
+                else if (count > 0 && i == 3 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " or FlowerColour like '%" + container + "%'";
+                    SearchTerm.RemoveAt(0);
+                }
+
+                if (count == 0 && i == 4 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " GeneralType like '%" + container + "%'";
+                    count++;
+                    SearchTerm.RemoveAt(0);
+                }
+                else if (count > 0 && i == 4 && tipe[i] == 1)
+                {
+                    container = SearchTerm.ElementAt(0);
+                    commandText += " or GeneralType like '%" + container + "%'";
+                    SearchTerm.RemoveAt(0);
+                }
+            }
+
+                       
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
-            myCommand.CommandText = "select CommonName from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm;
+            myCommand.CommandText = commandText;
             myCommand.CommandType = System.Data.CommandType.Text;
             myCommand.Connection = myConnection;
-            myReader = await myCommand.ExecuteReaderAsync();
+            myReader = myCommand.ExecuteReader();
             while (myReader.Read())
             {
-                results.Add(myReader["CommonName"].ToString());
+                if (Disp == "CommonName")
+                {
+                    if (myReader[Disp].ToString() == "")
+                    {
+                        results.Add(myReader["ScientificName"].ToString() + " \"No Common Name Found\"");
+                    }
+                    else
+                        results.Add(myReader[Disp].ToString());
+                }
+                else
+                    results.Add(myReader[Disp].ToString());
             }
             myReader.Close();
             return results;
         }
-
-
-
-
-
-
+        
 
     }
 }

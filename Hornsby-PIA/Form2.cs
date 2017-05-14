@@ -20,15 +20,13 @@ using System.Data.SqlClient;
 namespace Hornsby_PIA
 {
     public partial class Form2 : Form
-    {      
-     
+    {
+        public string disp = "CommonName";
 
         public Form2()
         {
             InitializeComponent();
-            textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            textBox1.Text = "Please Enter Plant's Scientific Name";
-            
+                       
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,11 +44,10 @@ namespace Hornsby_PIA
             if (textBox1.Text == "")
                 textBox2.Text = "";
             else
-            {
-                Console.WriteLine("string");
+            {                
                 string searchold = textBox1.Text;
                 string output;
-                List<string> results = await Program.sqlConnect.simsearch(textBox1.Text);
+                List<string> results = await Program.sqlConnect.simsearch(textBox1.Text, disp);
                 output = string.Join(Environment.NewLine, results.ToArray());
                 textBox2.Text = output;
             }
@@ -66,9 +63,34 @@ namespace Hornsby_PIA
         }
 
 
-        private  void textBox1_Enter(object sender, EventArgs e)
+        private void textBox1_Enter(object sender, EventArgs e)
         {
-            textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            if (textBox1.Text == "Please Enter Plant's Scientific Name")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void DispOpt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DispOpt.SelectedIndex.Equals(0))
+            {
+                disp = "CommonName";
+            }
+            if (DispOpt.SelectedIndex.Equals(1))
+            {
+                disp = "ScientificName";
+            }
+            if (DispOpt.SelectedIndex.Equals(2))
+            {
+                disp = "SpeciesName";
+            }
+            if (DispOpt.SelectedIndex.Equals(3))
+            {
+                disp = "GenusName";
+            }
+            textBox1_TextChanged(sender,e);
         }
     }
 
