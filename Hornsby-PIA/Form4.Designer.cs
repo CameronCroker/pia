@@ -74,6 +74,7 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(186, 229);
             this.checkedListBox1.TabIndex = 7;
+            this.checkedListBox1.DoubleClick += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 

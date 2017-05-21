@@ -11,7 +11,7 @@ namespace Hornsby_PIA
 {
     class Interface1
     {
-
+        static List<string> Results;
 
 
         public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=True") ;
@@ -173,7 +173,17 @@ namespace Hornsby_PIA
             myReader.Close();
             return results;
         }
-        
+
+        static public void get (string result)
+        {
+            Results.Add(result);          
+        }
+
+        static public List<string> send() {
+            return Results;
+        }
+
+
 
     }
 }

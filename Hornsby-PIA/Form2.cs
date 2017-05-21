@@ -19,10 +19,12 @@ using System.Data.SqlClient;
 
 namespace Hornsby_PIA
 {
+    
     public partial class Form2 : Form
     {
         public string disp = "CommonName";
         public string selected;
+        public string ReportStrings;
 
         public Form2()
         {
@@ -100,14 +102,15 @@ namespace Hornsby_PIA
 
         }
 
-        private void GenRep_Click(object sender, EventArgs e)
+        public void GenRep_Click(object sender, EventArgs e)
         {
             int cursorPosition = textBox2.SelectionStart;
             int lineIndex = textBox2.GetLineFromCharIndex(cursorPosition);
-            string lineText = textBox2.Lines[lineIndex];
-            Console.WriteLine(lineText);
+            string linetext = textBox2.Lines[lineIndex];
+            Interface1.get(linetext);           
         }
            
+
     }
 
 
