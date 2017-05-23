@@ -107,7 +107,10 @@ namespace Hornsby_PIA
             int cursorPosition = textBox2.SelectionStart;
             int lineIndex = textBox2.GetLineFromCharIndex(cursorPosition);
             string linetext = textBox2.Lines[lineIndex];
-            Interface1.get(linetext);           
+            Interface1.get(linetext);
+            
+            
+            
         }
            
 

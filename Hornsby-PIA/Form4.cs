@@ -22,7 +22,22 @@ namespace Hornsby_PIA
         {
             this.Close();
         }
-        
 
+
+        private void Checklist1_Doubleclick(object sender, EventArgs e)
+        {
+            Form5 frm = new Form5();
+            frm5.Show();
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            checkedListBox1.Items.Add(textBox1.Text);
+        }
     }
 }

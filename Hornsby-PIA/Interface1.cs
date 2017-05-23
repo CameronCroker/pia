@@ -156,7 +156,9 @@ namespace Hornsby_PIA
             myCommand.CommandType = System.Data.CommandType.Text;
             myCommand.Connection = myConnection;
             myReader = myCommand.ExecuteReader();
-            while (myReader.Read())
+            while (myReader.Read())             
+
+
             {
                 if (Disp == "CommonName")
                 {
@@ -181,11 +183,27 @@ namespace Hornsby_PIA
 
         static public List<string> send() {
             return Results;
+
         }
+
+
+        static public  List<string> display()
+        {
+            Results
+            while (Results.ElementAt<> simsearch()){
+                
+            }
+            return ()
+        }
+                
+
+
+          
+        }        
 
 
 
     }
-}
+
 
 
