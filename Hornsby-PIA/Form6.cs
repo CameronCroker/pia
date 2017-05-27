@@ -16,7 +16,8 @@ namespace Hornsby_PIA
         {
             DateTime localDate = DateTime.Now;
             InitializeComponent();
-            Location = ""
+            string Location = "";
+
             
 
 
@@ -24,6 +25,21 @@ namespace Hornsby_PIA
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            DateTime localDate = DateTime.Now;
+            string date = localDate.ToString();
+            string Location = textBox2.Text;
+            string staffname = textBox3.Text;
+            List<string> outputs = Interface1.display();
+            string disp;
+            textBox1.Text = date + Environment.NewLine + Location + Environment.NewLine + staffname + Environment.NewLine;
+            disp = string.Join(Environment.NewLine, outputs[0].ToArray());
+            textBox1.Text += disp + Environment.NewLine;
 
         }
     }

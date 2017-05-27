@@ -104,13 +104,17 @@ namespace Hornsby_PIA
 
         public void GenRep_Click(object sender, EventArgs e)
         {
-            int cursorPosition = textBox2.SelectionStart;
-            int lineIndex = textBox2.GetLineFromCharIndex(cursorPosition);
-            string linetext = textBox2.Lines[lineIndex];
-            Interface1.get(linetext);
+            if (textBox1.Text.ToString() != "")
+            {
+                int cursorPosition = textBox2.SelectionStart;
+                int lineIndex = textBox2.GetLineFromCharIndex(cursorPosition);
+                string linetext = textBox2.Lines[lineIndex];
+                Interface1.get(linetext);
+            }
             
-            
-            
+
+
+
         }
            
 

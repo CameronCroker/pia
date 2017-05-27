@@ -11,11 +11,17 @@ namespace Hornsby_PIA
 {
     class Interface1
     {
-        static List<string> Results;
+        static Interface1()
+        {
+            Results = new List<string>();           
+        }
+
+        static List<string> Results { get; set; }
+        static IEnumerable<string> Reports { get; set; }
 
 
-        public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=True") ;
-        
+        static public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=True");
+
 
 
         public void connect()
@@ -23,13 +29,13 @@ namespace Hornsby_PIA
             try
             {
                 myConnection.Open();
-               
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-            }                   
-           
+            }
+
         }
 
         public void endconnect()
@@ -44,31 +50,31 @@ namespace Hornsby_PIA
             }
         }
 
-        public async Task<List<string>> simsearch(string SearchTerm , string Disp)
+        public async Task<List<string>> simsearch(string SearchTerm, string Disp)
         {
-            var results = new List<string>();            
+            var results = new List<string>();
             SearchTerm = "'%" + SearchTerm + "%'";
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
-            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like "+ SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
+            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
             myCommand.CommandType = System.Data.CommandType.Text;
             myCommand.Connection = myConnection;
             myReader = await myCommand.ExecuteReaderAsync();
             while (myReader.Read())
-            {                
-                       
+            {
+
                 if (Disp == "CommonName")
                 {
-                    if(myReader[Disp].ToString() == "")
+                    if (myReader[Disp].ToString() == "")
                     {
-                        results.Add(myReader["ScientificName"].ToString() + " \"No Common Name Found\"");
+                        results.Add(myReader["ScientificName"].ToString());
                     }
                     else
                         results.Add(myReader[Disp].ToString());
                 }
                 else
                     results.Add(myReader[Disp].ToString());
-            }            
+            }
             myReader.Close();
             return results;
         }
@@ -149,14 +155,14 @@ namespace Hornsby_PIA
                 }
             }
 
-                       
+
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
             myCommand.CommandText = commandText;
             myCommand.CommandType = System.Data.CommandType.Text;
             myCommand.Connection = myConnection;
             myReader = myCommand.ExecuteReader();
-            while (myReader.Read())             
+            while (myReader.Read())
 
 
             {
@@ -164,7 +170,7 @@ namespace Hornsby_PIA
                 {
                     if (myReader[Disp].ToString() == "")
                     {
-                        results.Add(myReader["ScientificName"].ToString() + " \"No Common Name Found\"");
+                        results.Add(myReader["ScientificName"].ToString());
                     }
                     else
                         results.Add(myReader[Disp].ToString());
@@ -176,34 +182,100 @@ namespace Hornsby_PIA
             return results;
         }
 
-        static public void get (string result)
+        static public void get(string result)
         {
-            Results.Add(result);          
+            Results.Add(result);
         }
 
-        static public List<string> send() {
+        static public List<string> send()
+        {
             return Results;
 
         }
 
-
-        static public  List<string> display()
+        static public void clear()
         {
-            Results
-            while (Results.ElementAt<> simsearch()){
-                
-            }
-            return ()
+            Results.Clear();
         }
-                
 
 
-          
-        }        
+        public static List<string> display()
+        {
+
+            List<string> dispop = new List<string>();
+            dispop.Add("CommonName");
+            dispop.Add("ScientificName");
+            dispop.Add("SpeciesName");
+            dispop.Add("GenusName");
+            
+            List<string> count = new List<string>();
+            
+            foreach (string R in Reports)
+            {
+                Console.WriteLine(R);
+                foreach (string D in dispop)
+                    count.Add(D + ": " + solosearch(R, D) );
+                count.Add(Environment.NewLine + "-------------------" + Environment.NewLine);
+            }
+            return count;
+        }
+
+
+        public static string solosearch(string SearchTerm, string Disp)
+        {
+            var results = new List<string>();
+            SearchTerm = "'%" + SearchTerm + "%'";
+            SqlDataReader myReader;
+            SqlCommand myCommand = new SqlCommand();
+            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
+            myCommand.CommandType = System.Data.CommandType.Text;
+            myCommand.Connection = myConnection;
+            myReader = myCommand.ExecuteReader();
+            myReader.Read();
+            string result;
+
+            if (Disp == "CommonName")
+            {
+                if (myReader[Disp].ToString() == "")
+                {
+                    
+                    result = myReader["ScientificName"].ToString();
+                    myReader.Close();
+                    return result;
+                }
+                else
+                {
+
+                    result = myReader[Disp].ToString();
+                    myReader.Close();
+                    return result;
+                }
+            }
+            else
+            {
+
+                result = myReader[Disp].ToString();
+                myReader.Close();
+                return result;
+            }
+        }
+
+        static public void Repget(IEnumerable<string> result)
+        {
+            Reports = result;
+        }
+
+        static public object Repsend()
+        {
+            return Reports;
+        }
+
+
 
 
 
     }
+}    
 
 
 

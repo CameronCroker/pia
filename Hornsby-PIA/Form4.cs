@@ -26,7 +26,7 @@ namespace Hornsby_PIA
 
         private void Checklist1_Doubleclick(object sender, EventArgs e)
         {
-            Form5 frm = new Form5();
+            Form5 frm5 = new Form5();
             frm5.Show();
         }
 
@@ -38,6 +38,16 @@ namespace Hornsby_PIA
         private void button4_Click(object sender, EventArgs e)
         {
             checkedListBox1.Items.Add(textBox1.Text);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            checkedListBox1.SelectedItems.Clear();
         }
     }
 }

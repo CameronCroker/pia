@@ -121,7 +121,7 @@ namespace Hornsby_PIA
             this.GenRep.Name = "GenRep";
             this.GenRep.Size = new System.Drawing.Size(118, 23);
             this.GenRep.TabIndex = 8;
-            this.GenRep.Text = "Generate Report";
+            this.GenRep.Text = "Send to Reports";
             this.GenRep.UseVisualStyleBackColor = true;
             this.GenRep.Click += new System.EventHandler(this.GenRep_Click);
             // 

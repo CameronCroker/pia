@@ -15,39 +15,35 @@ namespace Hornsby_PIA
         public Form5()
         {
             InitializeComponent();
-            List<string> output = Interface1.send();
-            string results;
-            results = string.Join(Environment.NewLine, output.ToArray());
-            textBox2.Text = results;
+            string output = string.Join(Environment.NewLine, Interface1.send().ToArray());              
+            foreach (string R in Interface1.send())
+                checkedListBox1.Items.Add(R);
+        }
 
-
-
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void GenRepButton_Click(object sender, EventArgs e)
         {
+            var texts = this.checkedListBox1.CheckedItems.Cast<object>()
+                .Select<object,string>(x => this.checkedListBox1.GetItemText(x));            
+            Interface1.Repget(texts);
+            Form6 frm6 = new Form6();
+            frm6.Show();
+
             
         }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        private void textBox2_Enter(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ClearBut_Click(object sender, EventArgs e)
         {
-
+            Interface1.clear();
         }
-
-
     }
 }
