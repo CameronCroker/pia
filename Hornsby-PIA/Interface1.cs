@@ -18,6 +18,7 @@ namespace Hornsby_PIA
 
         static List<string> Results { get; set; }
         static IEnumerable<string> Reports { get; set; }
+        static string Name;
 
 
         static public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=True");
@@ -52,8 +53,17 @@ namespace Hornsby_PIA
 
         public async Task<List<string>> simsearch(string SearchTerm, string Disp)
         {
+            string SearchString = string.Empty;
+            foreach (char c in SearchTerm)
+            {
+                if (c == '\'')
+                    SearchString += "''";
+                else
+                    SearchString += c;
+            }
+            Console.WriteLine(SearchString);
             var results = new List<string>();
-            SearchTerm = "'%" + SearchTerm + "%'";
+            SearchTerm = "'%" + SearchString + "%'";
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
             myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
@@ -83,73 +93,133 @@ namespace Hornsby_PIA
         {
             var results = new List<string>();
             string commandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID join GeneralType on plants.GeneralTypeID = generaltype.GeneralTypeID where";
-            string container;
+            string container = string.Empty;
             int count = 0;
             for (int i = 0; i < 5; i++)
             {
                 if (count == 0 && i == 0 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " ScientificName like '%" + container + "%'";
                     count++;
                     SearchTerm.RemoveAt(0);
                 }
                 else if (count > 0 && i == 0 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " and ScientificName like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
                 if (count == 0 && i == 1 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " CommonName like '%" + container + "%'";
                     count++;
                     SearchTerm.RemoveAt(0);
                 }
                 else if (count > 0 && i == 1 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " and CommonName like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
                 if (count == 0 && i == 2 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " family.Name like '%" + container + "%'";
                     count++;
                     SearchTerm.RemoveAt(0);
                 }
                 else if (count > 0 && i == 2 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " and family.Name like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
                 if (count == 0 && i == 3 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " FlowerColour like '%" + container + "%'";
                     count++;
                     SearchTerm.RemoveAt(0);
                 }
                 else if (count > 0 && i == 3 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " and FlowerColour like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
 
                 if (count == 0 && i == 4 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " GeneralType like '%" + container + "%'";
                     count++;
                     SearchTerm.RemoveAt(0);
                 }
                 else if (count > 0 && i == 4 && tipe[i] == 1)
                 {
-                    container = SearchTerm.ElementAt(0);
+                    foreach (char c in SearchTerm.ElementAt(0))
+                    {
+                        if (c == '\'')
+                            container += "''";
+                        else
+                            container += c;
+                    }
                     commandText += " and GeneralType like '%" + container + "%'";
                     SearchTerm.RemoveAt(0);
                 }
@@ -223,8 +293,16 @@ namespace Hornsby_PIA
 
         public static string solosearch(string SearchTerm, string Disp)
         {
+            string SearchString = string.Empty;
+            foreach (char c in SearchTerm)
+            {
+                if (c == '\'')
+                    SearchString += "''";
+                else
+                    SearchString += c;
+            }
             var results = new List<string>();
-            SearchTerm = "'%" + SearchTerm + "%'";
+            SearchTerm = "'%" + SearchString + "%'";
             SqlDataReader myReader;
             SqlCommand myCommand = new SqlCommand();
             myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
@@ -270,6 +348,15 @@ namespace Hornsby_PIA
             return Reports;
         }
 
+        static public void CurrentReport (string name)
+        {
+            Name = name;
+        }
+
+        static public string CurRepSend()
+        {
+            return Name;
+        }
 
 
 

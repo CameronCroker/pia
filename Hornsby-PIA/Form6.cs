@@ -14,12 +14,8 @@ namespace Hornsby_PIA
     {
         public Form6()
         {
-            DateTime localDate = DateTime.Now;
+           
             InitializeComponent();
-            string Location = "";
-
-            
-
 
         }
 
@@ -38,9 +34,23 @@ namespace Hornsby_PIA
             List<string> outputs = Interface1.display();
             string disp;
             textBox1.Text = date + Environment.NewLine + Location + Environment.NewLine + staffname + Environment.NewLine;
-            disp = string.Join(Environment.NewLine, outputs[0].ToArray());
+            disp = string.Join(Environment.NewLine, outputs.ToArray());
             textBox1.Text += disp + Environment.NewLine;
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string txtname;
+            if (textBox1.Text != "")
+            {
+                txtname = Interface1.CurRepSend();
+                System.IO.File.WriteAllText(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports\" + txtname + ".txt", textBox1.Text);
+                this.Close();
+            }
+            else
+                textBox1.Text = "Generate report first";
+            
         }
     }
 }

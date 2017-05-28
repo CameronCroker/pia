@@ -30,6 +30,7 @@ namespace Hornsby_PIA
             var texts = this.checkedListBox1.CheckedItems.Cast<object>()
                 .Select<object,string>(x => this.checkedListBox1.GetItemText(x));            
             Interface1.Repget(texts);
+
             Form6 frm6 = new Form6();
             frm6.Show();
 

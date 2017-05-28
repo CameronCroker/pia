@@ -60,7 +60,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(224, 467);
+            this.button1.Location = new System.Drawing.Point(263, 467);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 23);
             this.button1.TabIndex = 6;
@@ -75,12 +75,12 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(239, 229);
             this.checkedListBox1.TabIndex = 7;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CheckList1_ItemCheck);
             this.checkedListBox1.DoubleClick += new System.EventHandler(this.Checklist1_Doubleclick);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(157, 467);
+            this.button2.Location = new System.Drawing.Point(151, 467);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(61, 23);
             this.button2.TabIndex = 8;
@@ -90,7 +90,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(98, 467);
+            this.button3.Location = new System.Drawing.Point(59, 467);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(53, 23);
             this.button3.TabIndex = 9;
@@ -99,7 +99,7 @@
             // 
             // CreateReport
             // 
-            this.CreateReport.Location = new System.Drawing.Point(263, 355);
+            this.CreateReport.Location = new System.Drawing.Point(263, 263);
             this.CreateReport.Name = "CreateReport";
             this.CreateReport.Size = new System.Drawing.Size(75, 46);
             this.CreateReport.TabIndex = 10;
@@ -109,7 +109,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(263, 329);
+            this.textBox1.Location = new System.Drawing.Point(263, 237);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 11;
@@ -117,7 +117,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(263, 310);
+            this.label1.Location = new System.Drawing.Point(260, 221);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 12;
