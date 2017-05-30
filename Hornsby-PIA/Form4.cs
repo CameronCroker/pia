@@ -17,7 +17,7 @@ namespace Hornsby_PIA
         public Form4()
         {
             InitializeComponent();
-            List<string> Files = Directory.GetFiles(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports", "*.txt")
+            List<string> Files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\", "*.txt")
                                      .Select(Path.GetFileName)
                                      .ToList<string>();
             foreach(string r in Files)
@@ -62,7 +62,35 @@ namespace Hornsby_PIA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            checkedListBox1.SelectedItems.Clear();
+            var texts = this.checkedListBox1.CheckedItems.Cast<object>()
+                .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
+
+            if (checkBox1.Text == "")
+            {
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+            }
+            checkBox1.Visible = true;
+            checkBox1.Text = "Are you sure you want" + Environment.NewLine + "to delete the selected" + Environment.NewLine + "report?";
+            button2.Text = "Confirm Delete";
+            if (checkBox1.Text == "Are you sure you want" + Environment.NewLine + "to delete the selected" + Environment.NewLine + "report?" && checkBox1.Checked == true)
+            {
+                button2.Text = "Delete";
+                foreach (string r in texts)
+                    File.Delete(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + r);                
+                checkBox1.Text = "";
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+                
+                checkedListBox1.Items.Clear();
+                List<string> Files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\", "*.txt")
+                                         .Select(Path.GetFileName)
+                                         .ToList<string>();
+                foreach (string r in Files)
+                    checkedListBox1.Items.Add(r);
+
+            }
+            
         }
 
         private void button4_Click_1(object sender, EventArgs e)

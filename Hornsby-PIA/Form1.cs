@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Hornsby_PIA
@@ -15,6 +16,11 @@ namespace Hornsby_PIA
         public Form1()
         {
             InitializeComponent();
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

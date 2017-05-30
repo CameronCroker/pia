@@ -42,7 +42,7 @@ namespace Hornsby_PIA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<string> Files = Directory.GetFiles(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports", "*.txt")
+            List<string> Files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\", "*.txt")
                                      .Select(Path.GetFileName)
                                      .ToList<string>();
             string txtname;
@@ -61,7 +61,7 @@ namespace Hornsby_PIA
                     button2.Text = "Confirm Save";
                     if (checkBox1.Text == "Are you sure you want" + Environment.NewLine + "to overwrite the old Report:" + Environment.NewLine + txtname + ".txt" && checkBox1.Checked == true)
                     {
-                        File.WriteAllText(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports\" + txtname + ".txt", textBox1.Text);
+                        File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + txtname + ".txt", textBox1.Text);
                         Interface1.clear();
                         checkBox1.Text = "";
                         checkBox1.Checked = false;
@@ -75,7 +75,7 @@ namespace Hornsby_PIA
                 }
                 else
                 {
-                    File.WriteAllText(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports\" + txtname + ".txt", textBox1.Text);
+                    File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + txtname + ".txt", textBox1.Text);
                     Form4 frm4 = new Form4();
                     frm4.Show();
                     this.Close();

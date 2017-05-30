@@ -16,7 +16,7 @@ namespace Hornsby_PIA
         public Form7()
         {
             InitializeComponent();
-            textBox4.Text = File.ReadAllText(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports\" + Interface1.CurRepViewSend());
+            textBox4.Text = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + Interface1.CurRepViewSend());
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Hornsby_PIA
             button2.Text = "Confirm Save";
             if (checkBox1.Text == "Are you sure you want" + Environment.NewLine + "to overwrite the old Report:" + Environment.NewLine + Interface1.CurRepViewSend() && checkBox1.Checked == true)
             {
-                File.WriteAllText(@"C:\Users\cameron\OneDrive\Documents\PIA\Reports\" + Interface1.CurRepViewSend(), textBox4.Text);
+                File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + Interface1.CurRepViewSend(), textBox4.Text);
                 Interface1.clear();
                 checkBox1.Text = "";
                 checkBox1.Checked = false;
