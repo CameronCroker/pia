@@ -34,12 +34,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.ClearBut = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // GenRepButton
             // 
-            this.GenRepButton.Location = new System.Drawing.Point(311, 255);
+            this.GenRepButton.Location = new System.Drawing.Point(311, 245);
             this.GenRepButton.Name = "GenRepButton";
             this.GenRepButton.Size = new System.Drawing.Size(75, 37);
             this.GenRepButton.TabIndex = 1;
@@ -49,12 +50,13 @@
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(311, 522);
+            this.BackButton.Location = new System.Drawing.Point(311, 288);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 23);
             this.BackButton.TabIndex = 2;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // label1
             // 
@@ -86,19 +88,30 @@
             // 
             // ClearBut
             // 
-            this.ClearBut.Location = new System.Drawing.Point(311, 298);
+            this.ClearBut.Location = new System.Drawing.Point(118, 551);
             this.ClearBut.Name = "ClearBut";
-            this.ClearBut.Size = new System.Drawing.Size(75, 42);
+            this.ClearBut.Size = new System.Drawing.Size(130, 42);
             this.ClearBut.TabIndex = 6;
             this.ClearBut.Text = "Clear Results";
             this.ClearBut.UseVisualStyleBackColor = true;
             this.ClearBut.Click += new System.EventHandler(this.ClearBut_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(271, 551);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 598);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.ClearBut);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.pictureBox1);
@@ -120,5 +133,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button ClearBut;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -21,6 +21,7 @@ namespace Hornsby_PIA
         {
             Form2 frm2 = new Form2();
             frm2.Show();
+
         }
 
         private void button3_Click(object sender, EventArgs e)

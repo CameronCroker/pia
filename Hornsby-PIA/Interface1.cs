@@ -19,6 +19,7 @@ namespace Hornsby_PIA
         static List<string> Results { get; set; }
         static IEnumerable<string> Reports { get; set; }
         static string Name;
+        static string View;
 
 
         static public SqlConnection myConnection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Comp348_PIA;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=True");
@@ -61,7 +62,6 @@ namespace Hornsby_PIA
                 else
                     SearchString += c;
             }
-            Console.WriteLine(SearchString);
             var results = new List<string>();
             SearchTerm = "'%" + SearchString + "%'";
             SqlDataReader myReader;
@@ -254,6 +254,7 @@ namespace Hornsby_PIA
 
         static public void get(string result)
         {
+            if(!Results.Contains(result))
             Results.Add(result);
         }
 
@@ -264,8 +265,9 @@ namespace Hornsby_PIA
         }
 
         static public void clear()
-        {
+        {            
             Results.Clear();
+
         }
 
 
@@ -282,7 +284,6 @@ namespace Hornsby_PIA
             
             foreach (string R in Reports)
             {
-                Console.WriteLine(R);
                 foreach (string D in dispop)
                     count.Add(D + ": " + solosearch(R, D) );
                 count.Add(Environment.NewLine + "-------------------" + Environment.NewLine);
@@ -357,6 +358,17 @@ namespace Hornsby_PIA
         {
             return Name;
         }
+
+        static public void CurrentReportView(string name)
+        {
+            View = name;
+        }
+
+        static public string CurRepViewSend()
+        {
+            return View;
+        }
+
 
 
 

@@ -18,6 +18,7 @@ namespace Hornsby_PIA
             string output = string.Join(Environment.NewLine, Interface1.send().ToArray());              
             foreach (string R in Interface1.send())
                 checkedListBox1.Items.Add(R);
+            checkBox1.Checked = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace Hornsby_PIA
 
             Form6 frm6 = new Form6();
             frm6.Show();
+            this.Close();
 
             
         }
@@ -44,7 +46,30 @@ namespace Hornsby_PIA
 
         private void ClearBut_Click(object sender, EventArgs e)
         {
-            Interface1.clear();
+            if (checkBox1.Text == "")
+            {
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+            }
+            checkBox1.Visible = true;
+            checkBox1.Text = "Are you sure you want" + Environment.NewLine + "to delete all your Results?";
+            ClearBut.Text = "Confirm Clear";
+            if (checkBox1.Text == "Are you sure you want" + Environment.NewLine + "to delete all your Results?" && checkBox1.Checked == true)
+            {
+                checkedListBox1.Items.Clear();
+                Interface1.clear();
+                checkBox1.Text = "";
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+                ClearBut.Text = "Clear Results";
+            }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            Form4 frm4 = new Form4();
+            frm4.Show();
+            this.Close();
         }
     }
 }

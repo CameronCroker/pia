@@ -41,9 +41,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.Results = new System.Windows.Forms.TextBox();
             this.DispOpt = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,16 +158,6 @@
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // Results
-            // 
-            this.Results.Location = new System.Drawing.Point(30, 327);
-            this.Results.Multiline = true;
-            this.Results.Name = "Results";
-            this.Results.ReadOnly = true;
-            this.Results.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Results.Size = new System.Drawing.Size(402, 151);
-            this.Results.TabIndex = 15;
-            // 
             // DispOpt
             // 
             this.DispOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -191,14 +182,35 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Display Options";
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.HorizontalScrollbar = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(30, 339);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(389, 139);
+            this.checkedListBox1.TabIndex = 18;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(177, 483);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Send to Reports";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(444, 519);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.DispOpt);
-            this.Controls.Add(this.Results);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label5);
@@ -235,8 +247,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.TextBox Results;
         private System.Windows.Forms.ComboBox DispOpt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

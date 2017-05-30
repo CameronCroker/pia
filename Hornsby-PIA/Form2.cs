@@ -44,15 +44,15 @@ namespace Hornsby_PIA
         }
         private async void textBox1_TextChanged(object sender, EventArgs e)
         {
+            
             if (textBox1.Text == "")
-                textBox2.Text = "";
-            else
-            {                
-                string searchold = textBox1.Text;
-                string output;
+                checkedListBox1.Items.Clear();
+            else 
+            {
+                checkedListBox1.Items.Clear();
                 List<string> results = await Program.sqlConnect.simsearch(textBox1.Text, disp);
-                output = string.Join(Environment.NewLine, results.ToArray());
-                textBox2.Text = output;
+                foreach(string o in results)
+                checkedListBox1.Items.Add(o);
             }
         }
 
@@ -104,12 +104,14 @@ namespace Hornsby_PIA
 
         public void GenRep_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.ToString() != "")
+            if (checkedListBox1.CheckedItems.Count > 0)
             {
-                int cursorPosition = textBox2.SelectionStart;
-                int lineIndex = textBox2.GetLineFromCharIndex(cursorPosition);
-                string linetext = textBox2.Lines[lineIndex];
-                Interface1.get(linetext);
+                var texts = this.checkedListBox1.CheckedItems.Cast<object>()
+                 .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
+                foreach (string r in texts)
+                {
+                    Interface1.get(r);
+                }
             }
             
 

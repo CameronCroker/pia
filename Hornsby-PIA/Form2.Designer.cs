@@ -36,8 +36,8 @@ namespace Hornsby_PIA
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DispOpt = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.RichTextBox();
             this.GenRep = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,16 +105,6 @@ namespace Hornsby_PIA
             this.label1.TabIndex = 6;
             this.label1.Text = "Display Options";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(34, 290);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(366, 220);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.Text = "";
-            this.textBox2.SelectionChanged += new System.EventHandler(this.textBox2_SelectionChanged);
-            // 
             // GenRep
             // 
             this.GenRep.Location = new System.Drawing.Point(266, 232);
@@ -125,13 +115,23 @@ namespace Hornsby_PIA
             this.GenRep.UseVisualStyleBackColor = true;
             this.GenRep.Click += new System.EventHandler(this.GenRep_Click);
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.HorizontalScrollbar = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(34, 290);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(366, 214);
+            this.checkedListBox1.TabIndex = 9;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 522);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.GenRep);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DispOpt);
             this.Controls.Add(this.button2);
@@ -154,7 +154,7 @@ namespace Hornsby_PIA
         private System.Windows.Forms.Button button2;
         private ComboBox DispOpt;
         private Label label1;
-        private RichTextBox textBox2;
         private Button GenRep;
+        private CheckedListBox checkedListBox1;
     }
 }

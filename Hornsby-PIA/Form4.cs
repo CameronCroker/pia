@@ -33,15 +33,8 @@ namespace Hornsby_PIA
 
         private void Checklist1_Doubleclick(object sender, EventArgs e)
         {
-            var texts = this.checkedListBox1.CheckedItems.Cast<object>()
-                .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
-            foreach (string r in texts)
-            {
-                Console.WriteLine(r);
-                Interface1.CurrentReport(r);
-            }
-            Form5 frm5 = new Form5();
-            frm5.Show();
+            
+            
         }
 
 
@@ -55,7 +48,11 @@ namespace Hornsby_PIA
 
         private void button4_Click(object sender, EventArgs e)
         {
-            checkedListBox1.Items.Add(textBox1.Text);
+            Interface1.CurrentReport(textBox1.Text);
+            Form5 frm5 = new Form5();
+            frm5.Show();
+            this.Close();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,6 +65,18 @@ namespace Hornsby_PIA
             checkedListBox1.SelectedItems.Clear();
         }
 
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            var texts = this.checkedListBox1.CheckedItems.Cast<object>()
+                .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
 
+            foreach (string r in texts)
+            {
+                Interface1.CurrentReportView(r);                
+            }
+            Form7 frm7 = new Form7();
+            frm7.Show();
+            this.Close();
+        }
     }
 }

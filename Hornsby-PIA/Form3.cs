@@ -67,12 +67,12 @@ namespace Hornsby_PIA
             }
                         
             if (tipe[5] != 0)
-            {                
-                    
-                    string output;
-                    List<string> results = Program.sqlConnect.adsearch(Search,tipe,disp);
-                    output = string.Join(Environment.NewLine, results.ToArray());
-                    Results.Text = output;
+            {
+
+                checkedListBox1.Items.Clear();
+                List<string> results = Program.sqlConnect.adsearch(Search,tipe,disp);
+                foreach (string o in results)
+                checkedListBox1.Items.Add(o); 
                 
             }
 
@@ -105,6 +105,19 @@ namespace Hornsby_PIA
                 disp = "GenusName";
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (checkedListBox1.CheckedItems.Count > 0)
+            {
+                var texts = this.checkedListBox1.CheckedItems.Cast<object>()
+                 .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
+                foreach (string r in texts)
+                {
+                    Interface1.get(r);
+                }
+            }
         }
     }
 }
