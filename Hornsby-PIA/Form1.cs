@@ -17,15 +17,18 @@ namespace Hornsby_PIA
         {
             InitializeComponent();
             string path = AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports";
+            this.StartPosition = FormStartPosition.CenterScreen;
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) { 
+        
             Form2 frm2 = new Form2();
+            this.Hide();
+            frm2.StartPosition = FormStartPosition.CenterScreen;
             frm2.Show();
 
         }
@@ -33,12 +36,16 @@ namespace Hornsby_PIA
         private void button3_Click(object sender, EventArgs e)
         {
             Form3 frm3 = new Form3();
+            this.Hide();
+            frm3.StartPosition = FormStartPosition.CenterScreen;
             frm3.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form4 frm4 = new Form4();
+            this.Hide();
+            frm4.StartPosition = FormStartPosition.CenterScreen;
             frm4.Show();
         }
     }

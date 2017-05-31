@@ -34,7 +34,12 @@ namespace Hornsby_PIA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+            Form1 frm1 = new Form1();
+            this.Hide();
+            frm1.StartPosition = FormStartPosition.CenterScreen;
+            frm1.Show();
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -27,7 +27,11 @@ namespace Hornsby_PIA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Form1 frm1 = new Form1();
+            this.Hide();
+            frm1.StartPosition = FormStartPosition.CenterScreen;
+            frm1.Show();
+
         }
 
 
@@ -50,6 +54,7 @@ namespace Hornsby_PIA
         {
             Interface1.CurrentReport(textBox1.Text);
             Form5 frm5 = new Form5();
+            frm5.StartPosition = FormStartPosition.CenterScreen;
             frm5.Show();
             this.Close();
 
@@ -103,6 +108,7 @@ namespace Hornsby_PIA
                 Interface1.CurrentReportView(r);                
             }
             Form7 frm7 = new Form7();
+            frm7.StartPosition = FormStartPosition.CenterScreen;
             frm7.Show();
             this.Close();
         }

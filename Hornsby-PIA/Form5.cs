@@ -33,6 +33,7 @@ namespace Hornsby_PIA
             Interface1.Repget(texts);
 
             Form6 frm6 = new Form6();
+            frm6.StartPosition = FormStartPosition.CenterScreen;
             frm6.Show();
             this.Close();
 
@@ -68,8 +69,10 @@ namespace Hornsby_PIA
         private void BackButton_Click(object sender, EventArgs e)
         {
             Form4 frm4 = new Form4();
-            frm4.Show();
             this.Close();
+            frm4.StartPosition = FormStartPosition.CenterScreen;
+            frm4.Show();
+            
         }
     }
 }

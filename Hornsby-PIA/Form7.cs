@@ -16,7 +16,15 @@ namespace Hornsby_PIA
         public Form7()
         {
             InitializeComponent();
-            textBox4.Text = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + Interface1.CurRepViewSend());
+            try
+            { 
+                textBox4.Text = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + Interface1.CurRepViewSend());
+            }
+
+            catch 
+            {
+                
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -60,8 +68,10 @@ namespace Hornsby_PIA
         private void button3_Click(object sender, EventArgs e)
         {
             Form4 frm4 = new Form4();
-            frm4.Show();
             this.Close();
+            frm4.StartPosition = FormStartPosition.CenterScreen;
+            frm4.Show();
+            
         }
     }
 }

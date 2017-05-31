@@ -89,8 +89,10 @@ namespace Hornsby_PIA
         private void button3_Click(object sender, EventArgs e)
         {
             Form5 frm5 = new Form5();
-            frm5.Show();
             this.Close();
+            frm5.StartPosition = FormStartPosition.CenterScreen;
+            frm5.Show();
+            
         }
     }
 }
