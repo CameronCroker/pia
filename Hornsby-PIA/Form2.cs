@@ -50,7 +50,7 @@ namespace Hornsby_PIA
             else 
             {
                 checkedListBox1.Items.Clear();
-                List<string> results = await Program.sqlConnect.simsearch(textBox1.Text, disp);
+                List<string> results = await Program.sqlConnect.SimpleSearch(textBox1.Text, disp);
                 foreach(string o in results)
                 checkedListBox1.Items.Add(o);
             }
@@ -92,6 +92,10 @@ namespace Hornsby_PIA
             if (DispOpt.SelectedIndex.Equals(3))
             {
                 disp = "GenusName";
+            }
+            if (DispOpt.SelectedIndex.Equals(4))
+            {
+                disp = "Name";
             }
             textBox1_TextChanged(sender,e);
         }

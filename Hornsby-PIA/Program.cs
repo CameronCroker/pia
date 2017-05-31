@@ -20,6 +20,7 @@ namespace Hornsby_PIA
 
             
             sqlConnect.connect();
+            
             Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1()); 

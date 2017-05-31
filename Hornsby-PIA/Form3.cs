@@ -33,36 +33,36 @@ namespace Hornsby_PIA
         }
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            List<string> Search = new List<string>();
+            Dictionary<string,string> Search = new Dictionary<string, string>();
             int[] tipe = new int[6] { 0, 0, 0, 0, 0 , 0};
             
             if (SciName.Text != "") {
                 tipe[0] = 1;
-                Search.Add(SciName.Text);
+                Search.Add("ScientificName",SciName.Text);
                 tipe[5] = 1;
             }
             if (ComName.Text != "")
             {
                 tipe[1] = 1;
-                Search.Add(ComName.Text);
+                Search.Add("CommonName",ComName.Text);
                 tipe[5] = 1;
             }
             if (FamName.Text != "")
             {
                 tipe[2] = 1;
-                Search.Add(FamName.Text);
+                Search.Add("family.Name", FamName.Text);
                 tipe[5] = 1;
             }
             if (Flowers.Text != "")
             {
                 tipe[3] = 1;
-                Search.Add(Flowers.Text);
+                Search.Add("FlowerColour", Flowers.Text);
                 tipe[5] = 1;
             }
             if (Type.Text != "")
             {
                 tipe[4] = 1;
-                Search.Add(Type.Text);
+                Search.Add("GeneralType", Type.Text);
                 tipe[5] = 1;
             }
                         
@@ -70,7 +70,7 @@ namespace Hornsby_PIA
             {
 
                 checkedListBox1.Items.Clear();
-                List<string> results = Program.sqlConnect.adsearch(Search,tipe,disp);
+                List<string> results = Program.sqlConnect.AdvancedSearch(Search,tipe,disp);
                 foreach (string o in results)
                 checkedListBox1.Items.Add(o); 
                 
@@ -119,5 +119,7 @@ namespace Hornsby_PIA
                 }
             }
         }
+
+        
     }
 }

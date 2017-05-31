@@ -89,7 +89,8 @@ namespace Hornsby_PIA
             "Common Name",
             "Scientific Name",
             "Species",
-            "Genus"});
+            "Genus",
+            "Family Name"});
             this.DispOpt.Location = new System.Drawing.Point(124, 234);
             this.DispOpt.Name = "DispOpt";
             this.DispOpt.Size = new System.Drawing.Size(121, 21);
