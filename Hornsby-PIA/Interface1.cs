@@ -16,16 +16,20 @@ namespace Hornsby_PIA
         {
             Results = new List<string>();           
         }
-
+        
         static List<string> Results { get; set; }
         static IEnumerable<string> Reports { get; set; }
         static string Name;
         static string View;
 
 
-        static private string dataSource = "data source=C:\\Users\\jnkum\\Source\\Repos\\pia3\\SQLiteDB.db";
+        static private string dataSource = "data source="+GetSolutionDirectory()+"\\SQLiteDB.db";
         static public SQLiteConnection conn = new SQLiteConnection(dataSource);
         
+        static public string GetSolutionDirectory()
+        {
+            return Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())));
+        }
         public void connect()
         {
             try
