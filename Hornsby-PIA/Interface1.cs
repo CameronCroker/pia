@@ -54,14 +54,14 @@ namespace Hornsby_PIA
                 Console.WriteLine(e.ToString());
             }
         }
-        public DataTable RetrieveData(string SQLquery)
+        static public DataTable RetrieveData(string SQLquery)
         {
             DataTable data = new DataTable();
             SQLiteDataAdapter da = new SQLiteDataAdapter(SQLquery, conn);
             da.Fill(data);
             return data;
         }
-        public List<string> DisplayResults(DataTable data, string displayOption)
+        static public List<string> DisplayResults(DataTable data, string displayOption)
         {
             List<string> results = new List<string>();
             foreach (DataRow row in data.Rows)
@@ -125,7 +125,6 @@ namespace Hornsby_PIA
         }
         public static List<string> display()
         {
-
             List<string> dispop = new List<string>();
             dispop.Add("CommonName");
             dispop.Add("ScientificName");
@@ -142,45 +141,16 @@ namespace Hornsby_PIA
             }
             return count;
         }
-        public static string solosearch(string SearchTerm, string Disp)
+        static public string solosearch(string SearchTerm, string Disp)
         {
-            string SearchString = string.Empty;
-            var results = new List<string>();
             SearchTerm = "'%" + Sanitize(SearchTerm) + "%'";
 
-            SqlDataReader myReader;
-            SqlCommand myCommand = new SqlCommand();
-            myCommand.CommandText = "select * from plants join family on plants.familyid = family.familyID join Genus on plants.GenusID = genus.GenusID where family.Name like " + SearchTerm + " or GenusName like " + SearchTerm + " or SpeciesName like " + SearchTerm + " or ScientificName like " + SearchTerm + " or CommonName like " + SearchTerm;
-            myCommand.CommandType = System.Data.CommandType.Text;
-            //myCommand.Connection = myConnection;
-            myReader = myCommand.ExecuteReader();
-            myReader.Read();
-            string result;
+            string query = "SELECT * FROM PLANTS JOIN FAMILY ON PLANTS.FAMILYID = FAMILY.FAMILYID JOIN GENUS ON PLANTS.GENUSID = GENUS.GENUSID WHERE FAMILY.NAME LIKE " + SearchTerm + " OR GENUSNAME LIKE " + SearchTerm + " OR SPECIESNAME LIKE " + SearchTerm + " OR SCIENTIFICNAME LIKE " + SearchTerm + " OR COMMONNAME LIKE " + SearchTerm;
+            List<string> result;
+            DataTable data = RetrieveData(query);
+            result = DisplayResults(data, Disp);
 
-            if (Disp == "CommonName")
-            {
-                if (myReader[Disp].ToString() == "")
-                {
-                    
-                    result = myReader["ScientificName"].ToString();
-                    myReader.Close();
-                    return result;
-                }
-                else
-                {
-
-                    result = myReader[Disp].ToString();
-                    myReader.Close();
-                    return result;
-                }
-            }
-            else
-            {
-
-                result = myReader[Disp].ToString();
-                myReader.Close();
-                return result;
-            }
+            return result.First().ToString();
         }
         static public string Sanitize(string s)
         {
