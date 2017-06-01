@@ -29,8 +29,8 @@ namespace Hornsby_PIA
         {
 
             DateTime localDate = DateTime.Now;
-            string date ="Date: " + localDate.Date.ToString() + Environment.NewLine;
-            string Time = "Time: " + localDate.TimeOfDay.ToString() + Environment.NewLine;
+            string date ="Date: " + localDate.ToShortDateString() + Environment.NewLine;
+            string Time = "Time: " + localDate.ToShortTimeString() + Environment.NewLine;
             string Location = "Location: " + textBox2.Text + Environment.NewLine;
             string staffname = "Staff Name: " + textBox3.Text + Environment.NewLine;
             List<string> outputs = Interface1.display();
