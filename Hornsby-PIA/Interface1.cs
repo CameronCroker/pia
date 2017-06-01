@@ -73,6 +73,10 @@ namespace Hornsby_PIA
                 else
                     results.Add(row.Field<string>(displayOption));
             }
+            foreach (string r in results)
+            {
+                Console.WriteLine(r);
+            }
             return results;
         }
 

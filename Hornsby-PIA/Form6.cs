@@ -29,12 +29,13 @@ namespace Hornsby_PIA
         {
 
             DateTime localDate = DateTime.Now;
-            string date = localDate.ToString();
-            string Location = textBox2.Text;
-            string staffname = textBox3.Text;
+            string date ="Date: " + localDate.Date.ToString() + Environment.NewLine;
+            string Time = "Time: " + localDate.TimeOfDay.ToString() + Environment.NewLine;
+            string Location = "Location: " + textBox2.Text + Environment.NewLine;
+            string staffname = "Staff Name: " + textBox3.Text + Environment.NewLine;
             List<string> outputs = Interface1.display();
             string disp;
-            textBox1.Text = date + Environment.NewLine + Location + Environment.NewLine + staffname + Environment.NewLine;
+            textBox1.Text = date + Environment.NewLine + Time+ Environment.NewLine + Location + Environment.NewLine + staffname + Environment.NewLine;
             disp = string.Join(Environment.NewLine, outputs.ToArray());
             textBox1.Text += disp + Environment.NewLine;
 
