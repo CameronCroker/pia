@@ -39,6 +39,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(263, 467);
+            this.button1.Location = new System.Drawing.Point(313, 467);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 23);
             this.button1.TabIndex = 6;
@@ -74,9 +75,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(151, 467);
+            this.button2.Location = new System.Drawing.Point(218, 467);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.Size = new System.Drawing.Size(79, 23);
             this.button2.TabIndex = 8;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
@@ -84,9 +85,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(59, 467);
+            this.button3.Location = new System.Drawing.Point(25, 467);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 23);
+            this.button3.Size = new System.Drawing.Size(73, 23);
             this.button3.TabIndex = 9;
             this.button3.Text = "Email";
             this.button3.UseVisualStyleBackColor = true;
@@ -147,11 +148,22 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(104, 467);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Export Report";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 528);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button5;
     }
 }

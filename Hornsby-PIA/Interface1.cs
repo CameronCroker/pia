@@ -85,7 +85,7 @@ namespace Hornsby_PIA
             var results = new List<string>();
             SearchTerm = Sanitize(SearchTerm);
             SearchTerm = "'%" + SearchTerm + "%'";
-            string query = "SELECT family.Name, CommonName, ScientificName,SpeciesName, Genus.GenusName FROM PLANTS JOIN FAMILY ON PLANTS.FAMILYID = FAMILY.FAMILYID JOIN GENUS ON PLANTS.GENUSID = GENUS.GENUSID WHERE FAMILY.NAME LIKE " + SearchTerm + " OR GenusName LIKE " + SearchTerm + " OR SpeciesName LIKE " + SearchTerm + " OR ScientificName LIKE " + SearchTerm + " OR CommonName LIKE " + SearchTerm;
+            string query = "SELECT family.Name, CommonName, ScientificName,SpeciesName, Genus.GenusName, FlowerColour FROM PLANTS JOIN FAMILY ON PLANTS.FAMILYID = FAMILY.FAMILYID JOIN GENUS ON PLANTS.GENUSID = GENUS.GENUSID WHERE FAMILY.NAME LIKE " + SearchTerm + " OR GenusName LIKE " + SearchTerm + " OR SpeciesName LIKE " + SearchTerm + " OR ScientificName LIKE " + SearchTerm + " OR CommonName LIKE " + SearchTerm ;
             DataTable data = RetrieveData(query);
             results = DisplayResults(data, Disp);
             return results;
