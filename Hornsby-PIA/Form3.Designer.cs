@@ -199,7 +199,6 @@
             // 
             this.GenType.FormattingEnabled = true;
             this.GenType.Items.AddRange(new object[] {
-            "",
             "Herb",
             "Climber",
             "Fern",

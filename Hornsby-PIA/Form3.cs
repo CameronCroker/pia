@@ -59,12 +59,11 @@ namespace Hornsby_PIA
                 Search.Add("FlowerColour", Flowers.Text);
                 tipe[5] = 1;
             }
-            if (GenType.SelectedItem.ToString() != "")
+            if (GenType.SelectedIndex > -1)
             {
                 tipe[4] = 1;
                 Search.Add("GeneralType", GenType.SelectedItem.ToString());
                 tipe[5] = 1;
-                Console.WriteLine(GenType.SelectedItem.ToString());
             }
                         
             if (tipe[5] != 0)
