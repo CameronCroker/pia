@@ -121,6 +121,10 @@ namespace Hornsby_PIA
                 {
                     Interface1.get(r);
                 }
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                {
+                    checkedListBox1.SetItemChecked(i, false);
+                }
             }
         }
 
