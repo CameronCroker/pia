@@ -140,7 +140,7 @@ namespace Hornsby_PIA
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form2";
-            this.Text = "hoe";
+            this.Text = "Simple Search";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -177,7 +177,7 @@
             this.Controls.Add(this.Reports);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form4";
-            this.Text = "Form4";
+            this.Text = "Reports";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

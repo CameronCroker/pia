@@ -116,7 +116,7 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.GenRepButton);
             this.Name = "Form8";
-            this.Text = "Form8";
+            this.Text = "Fill Report Results";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

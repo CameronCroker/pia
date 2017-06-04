@@ -242,7 +242,7 @@
             this.Controls.Add(this.SciName);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Advanced Search";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

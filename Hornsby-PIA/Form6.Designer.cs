@@ -160,7 +160,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Form6";
-            this.Text = "Form6";
+            this.Text = "Create Report";
             this.ResumeLayout(false);
             this.PerformLayout();
 

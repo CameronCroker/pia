@@ -135,7 +135,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox4);
             this.Name = "Form7";
-            this.Text = "Form7";
+            this.Text = "Edit Report";
             this.ResumeLayout(false);
             this.PerformLayout();
 
