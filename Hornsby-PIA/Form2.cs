@@ -28,13 +28,11 @@ namespace Hornsby_PIA
 
         public Form2()
         {
-            InitializeComponent();
-                                   
+            InitializeComponent();                                   
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             Form1 frm1 = new Form1();
             this.Hide();
             frm1.StartPosition = FormStartPosition.CenterScreen;
@@ -45,11 +43,10 @@ namespace Hornsby_PIA
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = String.Empty;
-
         }
+
         private async void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
+        {            
             if (textBox1.Text == "")
                 checkedListBox1.Items.Clear();
             else 
@@ -108,7 +105,6 @@ namespace Hornsby_PIA
         private void textBox2_SelectionChanged(object sender, EventArgs e)
         {
             
-
         }
 
         public void GenRep_Click(object sender, EventArgs e)
@@ -119,21 +115,16 @@ namespace Hornsby_PIA
                  .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
                 foreach (string r in texts)
                 {
-                    Interface1.get(r);
+                    Interface1.get(r);                    
+                }
+
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                {
+                    checkedListBox1.SetItemChecked(i, false);
                 }
             }
-            
-
-
-
         }
-           
-
     }
-
-
-
-
 }
 
 

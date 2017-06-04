@@ -13,6 +13,7 @@ namespace Hornsby_PIA
 {
     public partial class Form6 : Form
     {
+        int save = 0;
         public Form6()
         {
            
@@ -29,13 +30,13 @@ namespace Hornsby_PIA
         {
 
             DateTime localDate = DateTime.Now;
-            string date ="Date: " + localDate.ToShortDateString() + Environment.NewLine;
-            string Time = "Time: " + localDate.ToShortTimeString() + Environment.NewLine;
-            string Location = "Location: " + textBox2.Text + Environment.NewLine;
-            string staffname = "Staff Name: " + textBox3.Text + Environment.NewLine;
+            string date ="Date: " + localDate.ToShortDateString();
+            string Time = "Time: " + localDate.ToShortTimeString();
+            string Location = "Location: " + textBox2.Text;
+            string staffname = "Staff Name: " + textBox3.Text;
             List<string> outputs = Interface1.display();
             string disp;
-            textBox1.Text = date + Environment.NewLine + Time+ Environment.NewLine + Location + Environment.NewLine + staffname + Environment.NewLine;
+            textBox1.Text = date + Environment.NewLine + Time+ Environment.NewLine + Location + Environment.NewLine + staffname + Environment.NewLine + Environment.NewLine;
             disp = string.Join(Environment.NewLine, outputs.ToArray());
             textBox1.Text += disp + Environment.NewLine;
 
@@ -68,18 +69,17 @@ namespace Hornsby_PIA
                         checkBox1.Checked = false;
                         checkBox1.Visible = false;
                         button2.Text = "Save";
-                        Form4 frm4 = new Form4();
-                        frm4.Show();
-                        this.Close();
+                        textBox1.ReadOnly = true;
+                        save++;
+
 
                     }
                 }
                 else
                 {
                     File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + txtname + ".txt", textBox1.Text);
-                    Form4 frm4 = new Form4();
-                    frm4.Show();
-                    this.Close();
+                    textBox1.ReadOnly = true;
+                    save++;
                 }
             }
             else
@@ -89,11 +89,27 @@ namespace Hornsby_PIA
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form5 frm5 = new Form5();
-            this.Close();
-            frm5.StartPosition = FormStartPosition.CenterScreen;
-            frm5.Show();
+            if (save == 0)
+            {
+                Form5 frm5 = new Form5();
+                this.Close();
+                frm5.StartPosition = FormStartPosition.CenterScreen;
+                frm5.Show();
+            }
+            else
+            {
+                Form4 frm4 = new Form4();
+                this.Close();
+                frm4.StartPosition = FormStartPosition.CenterScreen;
+                frm4.Show();
+            }
+        }
             
+        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.ReadOnly = false;
         }
     }
 }

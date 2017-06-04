@@ -40,6 +40,8 @@ namespace Hornsby_PIA
         private void button1_Click(object sender, EventArgs e)
         {
             textBox4.ReadOnly = false;
+            button4.Visible = true;
+            button5.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,7 +62,9 @@ namespace Hornsby_PIA
                 checkBox1.Checked = false;
                 checkBox1.Visible = false;
                 button2.Text = "Save";
-                textBox4.ReadOnly = true;       
+                textBox4.ReadOnly = true;
+                button4.Visible = false;
+                button5.Visible = false;
 
             }
         }
@@ -72,6 +76,21 @@ namespace Hornsby_PIA
             frm4.StartPosition = FormStartPosition.CenterScreen;
             frm4.Show();
             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form8 frm8 = new Form8();
+            frm8.StartPosition = FormStartPosition.CenterScreen;
+            frm8.Show();
+            this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<string> outputs = Interface1.display();
+            string disp = string.Join(Environment.NewLine, outputs.ToArray());
+            textBox4.Text += Environment.NewLine + disp + Environment.NewLine;
         }
     }
 }

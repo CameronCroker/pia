@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Data.SQLite;
 using System.Data;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Hornsby_PIA
 {
@@ -73,10 +74,6 @@ namespace Hornsby_PIA
                 else
                     results.Add(row.Field<string>(displayOption));
             }
-            foreach (string r in results)
-            {
-                Console.WriteLine(r);
-            }
             return results;
         }
 
@@ -134,27 +131,40 @@ namespace Hornsby_PIA
             dispop.Add("ScientificName");
             dispop.Add("SpeciesName");
             dispop.Add("GenusName");
-            
+            dispop.Add("FlowerColour");
+            dispop.Add("GeneralType"); 
+
             List<string> count = new List<string>();
-            
+            string d;
             foreach (string R in Reports)
             {
+                d = R;
+                if (R.Contains(" No CommonName Found")) 
+                {
+                    d = R.Replace(" No CommonName Found", "");
+                    Console.WriteLine(d);
+                }
+                    
                 foreach (string D in dispop)
-                    count.Add(D + ": " + solosearch(R, D) );
+                    count.Add(D + ": " + solosearch(d, D) );
                 count.Add(Environment.NewLine + "-------------------" + Environment.NewLine);
             }
             return count;
         }
         static public string solosearch(string SearchTerm, string Disp)
         {
+            
             SearchTerm = "'%" + Sanitize(SearchTerm) + "%'";
-
-            string query = "SELECT * FROM PLANTS JOIN FAMILY ON PLANTS.FAMILYID = FAMILY.FAMILYID JOIN GENUS ON PLANTS.GENUSID = GENUS.GENUSID WHERE FAMILY.NAME LIKE " + SearchTerm + " OR GENUSNAME LIKE " + SearchTerm + " OR SPECIESNAME LIKE " + SearchTerm + " OR SCIENTIFICNAME LIKE " + SearchTerm + " OR COMMONNAME LIKE " + SearchTerm;
+          
+            string query = "SELECT * FROM PLANTS JOIN FAMILY ON PLANTS.FAMILYID = FAMILY.FAMILYID JOIN GENUS ON PLANTS.GENUSID = GENUS.GENUSID join GeneralType on plants.GeneralTypeID = generaltype.GeneralTypeID WHERE FAMILY.NAME LIKE " + SearchTerm + " OR GENUSNAME LIKE " + SearchTerm + " OR SPECIESNAME LIKE " + SearchTerm + " OR SCIENTIFICNAME LIKE " + SearchTerm + " OR COMMONNAME LIKE " + SearchTerm;
             List<string> result;
             DataTable data = RetrieveData(query);
             result = DisplayResults(data, Disp);
 
-            return result.First().ToString();
+            if (result.Count > 0)
+                return result.First().ToString();
+            else
+                return "";
         }
         static public string Sanitize(string s)
         {
@@ -163,17 +173,22 @@ namespace Hornsby_PIA
 
             foreach (char c in s)
             {
-                foreach (char adm in admitted)
-                {
-                    if (c == adm)
+                if (c == '-')
+                    output.Append(c);
+                else if (c == '\'')
+                    output.Append("\'\'");
+                else foreach (char adm in admitted)
                     {
-                        output.Append(c);
-                    }
-                }
+                        if (c == adm)
+                        {
+                            output.Append(c);
+                        }
+                    }              
             }
 
             return output.ToString();
         }
+
         static public void Repget(IEnumerable<string> result)
         {
             Reports = result;

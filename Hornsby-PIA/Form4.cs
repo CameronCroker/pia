@@ -52,12 +52,18 @@ namespace Hornsby_PIA
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Interface1.CurrentReport(textBox1.Text);
-            Form5 frm5 = new Form5();
-            frm5.StartPosition = FormStartPosition.CenterScreen;
-            frm5.Show();
-            this.Close();
-
+            if (textBox1.Text != "Enter Report Name" && textBox1.Text != "")
+            {
+                Interface1.CurrentReport(textBox1.Text);
+                Form5 frm5 = new Form5();
+                frm5.StartPosition = FormStartPosition.CenterScreen;
+                frm5.Show();
+                this.Close();
+            }
+           
+            else
+                textBox1.Text = "Enter Report Name";
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -114,6 +120,11 @@ namespace Hornsby_PIA
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

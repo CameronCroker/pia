@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Hornsby_PIA
 {
-    public partial class Form5 : Form
+    public partial class Form8 : Form
     {
-        public Form5()
+        public Form8()
         {
             InitializeComponent();
             string output = string.Join(Environment.NewLine, Interface1.send().ToArray());
@@ -35,16 +35,16 @@ namespace Hornsby_PIA
         private void GenRepButton_Click(object sender, EventArgs e)
         {
             var texts = this.checkedListBox1.CheckedItems.Cast<object>()
-                .Select<object,string>(x => this.checkedListBox1.GetItemText(x)); 
-            if (!texts.Contains("There are no search Results"))           
-            Interface1.Repget(texts);
+                .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
+            if (!texts.Contains("There are no search Results"))
+                Interface1.Repget(texts);
 
-            Form6 frm6 = new Form6();
-            frm6.StartPosition = FormStartPosition.CenterScreen;
-            frm6.Show();
+            Form7 frm7 = new Form7();
+            frm7.StartPosition = FormStartPosition.CenterScreen;
+            frm7.Show();
             this.Close();
 
-            
+
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -75,11 +75,12 @@ namespace Hornsby_PIA
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            Form4 frm4 = new Form4();
+            Form7 frm7 = new Form7();
             this.Close();
-            frm4.StartPosition = FormStartPosition.CenterScreen;
-            frm4.Show();
-            
+            frm7.StartPosition = FormStartPosition.CenterScreen;
+            frm7.Show();
+
         }
     }
 }
+
