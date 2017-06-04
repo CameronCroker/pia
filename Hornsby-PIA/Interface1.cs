@@ -19,7 +19,7 @@ namespace Hornsby_PIA
         }
         
         static List<string> Results { get; set; }
-        static IEnumerable<string> Reports { get; set; }
+        static IEnumerable<string> Reports { get; set; } = null;
         static string Name;
         static string View;
 
@@ -136,18 +136,21 @@ namespace Hornsby_PIA
 
             List<string> count = new List<string>();
             string d;
-            foreach (string R in Reports)
+            if (Reports != null)
             {
-                d = R;
-                if (R.Contains(" No CommonName Found")) 
+                foreach (string R in Reports)
                 {
-                    d = R.Replace(" No CommonName Found", "");
-                    Console.WriteLine(d);
+                    d = R;
+                    if (R.Contains(" No CommonName Found"))
+                    {
+                        d = R.Replace(" No CommonName Found", "");
+                        Console.WriteLine(d);
+                    }
+
+                    foreach (string D in dispop)
+                        count.Add(D + ": " + solosearch(d, D));
+                    count.Add(Environment.NewLine + "-------------------" + Environment.NewLine);
                 }
-                    
-                foreach (string D in dispop)
-                    count.Add(D + ": " + solosearch(d, D) );
-                count.Add(Environment.NewLine + "-------------------" + Environment.NewLine);
             }
             return count;
         }
@@ -194,7 +197,7 @@ namespace Hornsby_PIA
             Reports = result;
         }
 
-        static public object Repsend()
+        static public IEnumerable<string> Repsend()
         {
             return Reports;
         }

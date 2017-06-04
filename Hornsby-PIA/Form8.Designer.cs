@@ -47,6 +47,7 @@
             this.checkBox1.TabIndex = 14;
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Visible = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // ClearBut
             // 
@@ -56,6 +57,7 @@
             this.ClearBut.TabIndex = 13;
             this.ClearBut.Text = "Clear Results";
             this.ClearBut.UseVisualStyleBackColor = true;
+            this.ClearBut.Click += new System.EventHandler(this.ClearBut_Click_1);
             // 
             // checkedListBox1
             // 
@@ -92,6 +94,7 @@
             this.BackButton.TabIndex = 9;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click_1);
             // 
             // GenRepButton
             // 

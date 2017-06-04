@@ -81,6 +81,40 @@ namespace Hornsby_PIA
             frm7.Show();
 
         }
+
+        private void BackButton_Click_1(object sender, EventArgs e)
+        {
+            Form7 frm7 = new Form7();
+            this.Close();
+            frm7.StartPosition = FormStartPosition.CenterScreen;
+            frm7.Show();
+        }
+
+        private void ClearBut_Click_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Text == "")
+            {
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+            }
+            checkBox1.Visible = true;
+            checkBox1.Text = "Are you sure you want" + Environment.NewLine + "to delete all your Results?";
+            ClearBut.Text = "Confirm Clear";
+            if (checkBox1.Text == "Are you sure you want" + Environment.NewLine + "to delete all your Results?" && checkBox1.Checked == true)
+            {
+                checkedListBox1.Items.Clear();
+                Interface1.clear();
+                checkBox1.Text = "";
+                checkBox1.Checked = false;
+                checkBox1.Visible = false;
+                ClearBut.Text = "Clear Results";
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

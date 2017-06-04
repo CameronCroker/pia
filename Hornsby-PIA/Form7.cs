@@ -88,9 +88,11 @@ namespace Hornsby_PIA
 
         private void button5_Click(object sender, EventArgs e)
         {
-            List<string> outputs = Interface1.display();
-            string disp = string.Join(Environment.NewLine, outputs.ToArray());
-            textBox4.Text += Environment.NewLine + disp + Environment.NewLine;
+            
+                List<string> outputs = Interface1.display();
+                string disp = string.Join(Environment.NewLine, outputs.ToArray());
+                textBox4.Text += Environment.NewLine + disp + Environment.NewLine;
+            
         }
     }
 }
