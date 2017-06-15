@@ -197,8 +197,10 @@
             // 
             // GenType
             // 
+            this.GenType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenType.FormattingEnabled = true;
             this.GenType.Items.AddRange(new object[] {
+            "No Selection",
             "Herb",
             "Climber",
             "Fern",

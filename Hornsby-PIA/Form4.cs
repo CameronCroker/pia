@@ -121,7 +121,17 @@ namespace Hornsby_PIA
 
         private void button5_Click(object sender, EventArgs e)
         {
+            var texts = this.checkedListBox1.CheckedItems.Cast<object>()
+                .Select<object, string>(x => this.checkedListBox1.GetItemText(x));
 
+            foreach (string r in texts)
+            {
+                Interface1.CurrentReportView(r);
+            }
+
+            string text = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + Interface1.CurRepViewSend());
+            string Name = AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + Interface1.CurRepViewSend();
+            Interface1.ReptoCSV(text, Name);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

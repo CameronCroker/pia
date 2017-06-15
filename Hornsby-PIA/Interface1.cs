@@ -24,9 +24,20 @@ namespace Hornsby_PIA
         static string View;
 
         
-        static private string dataSource = "data source="+ AppDomain.CurrentDomain.BaseDirectory + "\\PIA" + "\\SQLiteDB.db";
+        static public void move ()
+        {
+            string fileToMove = GetSolutionDirectory() + "\\SQLiteDB.db";
+            string moveTo = AppDomain.CurrentDomain.BaseDirectory + "\\PIA" + "\\SQLiteDB.db";
+            File.Move(fileToMove, moveTo);
+        }
+        
+        static private string dataSource = "data source="+ AppDomain.CurrentDomain.BaseDirectory + "\\PIA"+ "\\SQLiteDB.db";
         static public SQLiteConnection conn = new SQLiteConnection(dataSource);
         
+        static public string GetSolutionDirectory()
+        {
+            return Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())));
+        }
         public void connect()
         {
             try
@@ -188,6 +199,32 @@ namespace Hornsby_PIA
             return output.ToString();
         }
 
+        static public string toCSV(string s)
+        {
+            StringBuilder output = new StringBuilder(s.Length);
+            int index = s.IndexOf("Time: ") + 1;
+            var t = s.Split(Environment.NewLine.ToArray());
+            string time = t[2];
+            string Time = time.Replace("Time: ", "Time, ");
+            
+            foreach (char c in s)
+            {
+
+                if (c == ':')
+                    output.Append(",");
+                else
+                    output.Append(c);
+            }
+            output.Replace(Environment.NewLine + "-------------------"+ Environment.NewLine, "");
+
+            var temp = output.ToString().Split(Environment.NewLine.ToArray());
+            temp[2] = Time;
+
+            string finOut = string.Join(Environment.NewLine, temp);
+
+            return finOut;
+        }
+
         static public void Repget(IEnumerable<string> result)
         {
             Reports = result;
@@ -218,9 +255,16 @@ namespace Hornsby_PIA
             return View;
         }
 
+        
+        static public void RepSave (string text, string name)
+        {
+            File.WriteAllText(name,text);
+        }
 
-
-
+        static public void ReptoCSV(string text, string name)
+        {
+            File.WriteAllText(name + ".csv", toCSV(text));
+        }
 
     }
 }    

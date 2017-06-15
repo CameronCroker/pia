@@ -63,7 +63,8 @@ namespace Hornsby_PIA
                     button2.Text = "Confirm Save";
                     if (checkBox1.Text == "Are you sure you want" + Environment.NewLine + "to overwrite the old Report:" + Environment.NewLine + txtname + ".txt" && checkBox1.Checked == true)
                     {
-                        File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + txtname + ".txt", textBox1.Text);
+                        string Name = AppDomain.CurrentDomain.BaseDirectory + @"\PIA\Reports\" + txtname + ".txt";
+                        Interface1.RepSave(textBox1.Text, Name);
                         Interface1.clear();
                         checkBox1.Text = "";
                         checkBox1.Checked = false;
