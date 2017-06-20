@@ -43,6 +43,7 @@ namespace Hornsby_PIA
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBox1.Location = new System.Drawing.Point(124, 186);
             this.textBox1.Name = "textBox1";
@@ -54,6 +55,7 @@ namespace Hornsby_PIA
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Location = new System.Drawing.Point(225, 261);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 23);
@@ -64,6 +66,7 @@ namespace Hornsby_PIA
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.Location = new System.Drawing.Point(124, 261);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 23);
@@ -74,6 +77,7 @@ namespace Hornsby_PIA
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Hornsby_PIA.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(124, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -83,6 +87,7 @@ namespace Hornsby_PIA
             // 
             // DispOpt
             // 
+            this.DispOpt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DispOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DispOpt.FormattingEnabled = true;
             this.DispOpt.Items.AddRange(new object[] {
@@ -99,6 +104,7 @@ namespace Hornsby_PIA
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(124, 215);
             this.label1.Name = "label1";
@@ -108,6 +114,7 @@ namespace Hornsby_PIA
             // 
             // GenRep
             // 
+            this.GenRep.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GenRep.Location = new System.Drawing.Point(266, 232);
             this.GenRep.Name = "GenRep";
             this.GenRep.Size = new System.Drawing.Size(118, 23);
@@ -118,6 +125,7 @@ namespace Hornsby_PIA
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.HorizontalScrollbar = true;
