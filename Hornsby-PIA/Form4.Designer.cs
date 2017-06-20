@@ -44,6 +44,7 @@
             // 
             // Reports
             // 
+            this.Reports.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Reports.AutoSize = true;
             this.Reports.Location = new System.Drawing.Point(12, 205);
             this.Reports.Name = "Reports";
@@ -53,6 +54,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Location = new System.Drawing.Point(313, 467);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 23);
@@ -63,6 +65,7 @@
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(12, 221);
@@ -74,6 +77,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.Location = new System.Drawing.Point(218, 467);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(79, 23);
@@ -84,6 +88,7 @@
             // 
             // CreateReport
             // 
+            this.CreateReport.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CreateReport.Location = new System.Drawing.Point(263, 263);
             this.CreateReport.Name = "CreateReport";
             this.CreateReport.Size = new System.Drawing.Size(75, 46);
@@ -94,6 +99,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(263, 237);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -102,6 +108,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(260, 221);
             this.label1.Name = "label1";
@@ -112,6 +119,7 @@
             // 
             // button4
             // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button4.Location = new System.Drawing.Point(263, 333);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 44);
@@ -122,6 +130,7 @@
             // 
             // checkBox1
             // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(263, 383);
             this.checkBox1.Name = "checkBox1";
@@ -132,6 +141,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Hornsby_PIA.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(98, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -141,6 +151,7 @@
             // 
             // button5
             // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button5.Location = new System.Drawing.Point(15, 467);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(104, 23);

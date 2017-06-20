@@ -40,6 +40,7 @@
             // 
             // checkBox1
             // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(281, 552);
             this.checkBox1.Name = "checkBox1";
@@ -51,6 +52,7 @@
             // 
             // ClearBut
             // 
+            this.ClearBut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ClearBut.Location = new System.Drawing.Point(128, 552);
             this.ClearBut.Name = "ClearBut";
             this.ClearBut.Size = new System.Drawing.Size(130, 42);
@@ -61,6 +63,7 @@
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(39, 212);
@@ -70,6 +73,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Hornsby_PIA.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(128, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -79,6 +83,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(36, 185);
             this.label1.Name = "label1";
@@ -88,6 +93,7 @@
             // 
             // BackButton
             // 
+            this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BackButton.Location = new System.Drawing.Point(321, 289);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 23);
@@ -98,6 +104,7 @@
             // 
             // GenRepButton
             // 
+            this.GenRepButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GenRepButton.Location = new System.Drawing.Point(321, 246);
             this.GenRepButton.Name = "GenRepButton";
             this.GenRepButton.Size = new System.Drawing.Size(75, 37);

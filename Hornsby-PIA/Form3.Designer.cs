@@ -50,6 +50,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Hornsby_PIA.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(122, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -59,6 +60,7 @@
             // 
             // SciName
             // 
+            this.SciName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SciName.Location = new System.Drawing.Point(30, 210);
             this.SciName.Name = "SciName";
             this.SciName.Size = new System.Drawing.Size(186, 20);
@@ -66,6 +68,7 @@
             // 
             // ComName
             // 
+            this.ComName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ComName.Location = new System.Drawing.Point(246, 210);
             this.ComName.Name = "ComName";
             this.ComName.Size = new System.Drawing.Size(186, 20);
@@ -73,6 +76,7 @@
             // 
             // FamName
             // 
+            this.FamName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FamName.Location = new System.Drawing.Point(30, 254);
             this.FamName.Name = "FamName";
             this.FamName.Size = new System.Drawing.Size(186, 20);
@@ -80,6 +84,7 @@
             // 
             // Flowers
             // 
+            this.Flowers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Flowers.Location = new System.Drawing.Point(246, 254);
             this.Flowers.Name = "Flowers";
             this.Flowers.Size = new System.Drawing.Size(186, 20);
@@ -87,6 +92,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(27, 194);
             this.label1.Name = "label1";
@@ -97,6 +103,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(243, 194);
             this.label2.Name = "label2";
@@ -106,6 +113,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(27, 238);
             this.label3.Name = "label3";
@@ -115,15 +123,17 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(243, 238);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Flower Options";
+            this.label4.Text = "Flower Colour";
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(27, 285);
             this.label5.Name = "label5";
@@ -133,6 +143,7 @@
             // 
             // BackButton
             // 
+            this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BackButton.Location = new System.Drawing.Point(357, 484);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 23);
@@ -143,6 +154,7 @@
             // 
             // SearchButton
             // 
+            this.SearchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchButton.Location = new System.Drawing.Point(30, 484);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 23);
@@ -153,6 +165,7 @@
             // 
             // DispOpt
             // 
+            this.DispOpt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DispOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DispOpt.FormattingEnabled = true;
             this.DispOpt.Items.AddRange(new object[] {
@@ -168,6 +181,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(243, 284);
             this.label6.Name = "label6";
@@ -177,6 +191,7 @@
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.HorizontalScrollbar = true;
@@ -187,6 +202,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Location = new System.Drawing.Point(177, 483);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 23);
@@ -197,6 +213,7 @@
             // 
             // GenType
             // 
+            this.GenType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GenType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenType.FormattingEnabled = true;
             this.GenType.Items.AddRange(new object[] {
