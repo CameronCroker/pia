@@ -118,9 +118,10 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(243, 238);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Flower Options";
+            this.label4.Text = "Flower Colours";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
