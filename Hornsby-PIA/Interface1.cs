@@ -155,7 +155,7 @@ namespace Hornsby_PIA
                     }
 
                     foreach (string D in dispop)
-                        count.Add(D + " " + solosearch(d, D));
+                        count.Add(D + " : " + solosearch(d, D));
                     //count.Add(Environment.NewLine + "-------------------" + Environment.NewLine);
                 }
             }
